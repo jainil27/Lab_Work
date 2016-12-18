@@ -17,6 +17,7 @@ class queuee
 {
     node* front=NULL;   // Try without assignment
     node* rear=NULL;
+    int size=0;
 public:
     void add(int);
     void display();
@@ -54,6 +55,7 @@ main()
 
 void queuee::add(int d)
 {
+    size++;
     node*p = new node;
     p->data=d;
     p->next=front;
@@ -75,15 +77,17 @@ void queuee::display()
         cout<<"\nQueue is Empty !";
         return;
     }
+    int temp_size=2*size;
     node* p=front;
 //    cout<<p->data;
- cout<<"\nThe Queue is : >>";
-    while(p->next!=NULL)
+ cout<<"\nThe Queue is (Displaying Queue 2 times) : >>";
+    while(p->next!=NULL&&temp_size)
     {
         cout<<" "<<p->data;
         p=p->next;
+        temp_size--;
     }
-    cout<<" "<<p->data;
+//    cout<<" "<<p->data;
 }
 
 void queuee::removee()
@@ -93,9 +97,11 @@ void queuee::removee()
         cout<<"Queue is Empty !!";
     }
     else{
+            size--;
     cout<<"Element removed is : "<<front->data;
     front=front->next;
     rear->next=front;
     q.display();
     }
 }
+
