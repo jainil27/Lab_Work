@@ -36,6 +36,7 @@ main()
     {
     case 1: system("clear");
         label:
+            system("clear");
             cout<<"\t\tInput Restricted Doubly Ended Queue.";
             cout<<"\n\n1) Add Element to front.\n2) Remove from front.\n3) Remove from rear.\n4) Display.\n5)Exit.";
             cout<<"\n\nEnter your choice...";
@@ -59,6 +60,7 @@ main()
             break;
     case 2: system("clear");
         tag:
+            system("clear");
             cout<<"\t\tOutput Restricted Doubly Ended Queue.";
             cout<<"\n\n1) Add Element to front.\n2) Add element to rear.\n3) Remove from rear.\n4) Display.\n5)Exit.";
             cout<<"\n\nEnter your choice...";
@@ -77,6 +79,7 @@ main()
                         break;
                 case 4: dq.display();
                         break;
+                case 5: exit(0);
                 default: cout<<"Invalid Choice.";
             }
             goto tag;
@@ -91,7 +94,7 @@ void dequeue::ins_front(int d)
     node* p=new node;
     p->data=d;
     p->next=NULL;
-    if(front=NULL)
+    if(front==NULL)
     {
         front=rear=p;
     }
@@ -107,7 +110,7 @@ void dequeue::ins_rear(int d)
     node* p=new node;
     p->data=d;
     p->next=NULL;
-    if(front=NULL)
+    if(front==NULL)
     {
         front=rear=p;
     }
@@ -128,6 +131,7 @@ void dequeue::rem_front()
     else
     {
         cout<<"\nElement Removed is : "<<front->data;
+        front=front->next;
         dq.display();
     }
 }
@@ -157,6 +161,7 @@ void dequeue::display()
 {
     node* temp;
     temp=front;
+    cout<<"\nQueue is  >>";
     while(temp->next!=NULL)
     {
         cout<<" "<<temp->data;
